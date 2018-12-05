@@ -5,10 +5,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     template : `
     <input type="text" (input)="onUserInput($event)" [value]="name">
     <button class="btn" [ngClass]="{'btn-primary': name !== '', 'btn-default': name === ''}" (click)="onUserAdded($event)">Add</button>
+
     <!--<input type="text" (input)="onUserInput($event)" [value]="name">-->
     <!--<input type="text" [(ngModel)]="name">-->
-    <p>Hello {{name}}!</p>
-    <p>I am the user component!</p>
+
+    <p *ngIf="name === ''">Please enter a name</p>
+
     <app-user-detail></app-user-detail>
     `
 })
